@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+
+android {
+
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        minSdkVersion 28
+        targetSdkVersion 28
+        versionCode rootProject.ext.versionMajor * 1000000 + rootProject.ext.versionMinor * 1000 + rootProject.ext.versionPatch
+        versionName "${rootProject.ext.versionName}"
+        setProperty("archivesBaseName", "${rootProject.ext.nameApk}")
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+        release {
+            minifyEnabled false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    libraryVariants.all { variant ->
+        variant.outputs.all { output ->
+
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.aar')) {
+
+                def fileName = "${archivesBaseName}.aar"
+                if (variant.name == android.buildTypes.release.name) {
+                    fileName = "${archivesBaseName}_${rootProject.ext.versionName}.aar"
+                } else if (variant.name == android.buildTypes.debug.name) {
+                    fileName = "${archivesBaseName}_debug.aar"
+                }
+
+                outputFileName =  "${fileName}"
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation rootProject.ext.androidDependencies.androidSupportv7
+    implementation rootProject.ext.androidDependencies.androidSupportv4
+    implementation rootProject.ext.androidDependencies.androidSupportv13
+    implementation rootProject.ext.androidDependencies.design
+
+    implementation rootProject.ext.dependencies.gsonConverter
+
+    testImplementation rootProject.ext.testDependencies.junit
+}
