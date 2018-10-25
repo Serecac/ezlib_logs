@@ -1,8 +1,8 @@
 allprojects {
     ext {
-        versionMajor = 0
+        versionMajor = 1
         versionMinor = 0
-        versionPatch = 1
+        versionPatch = 0
         nameApk = "Ezlib_Log"
         versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
     }

@@ -5,7 +5,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 18
         targetSdkVersion 28
         versionCode rootProject.ext.versionMajor * 1000000 + rootProject.ext.versionMinor * 1000 + rootProject.ext.versionPatch
         versionName "${rootProject.ext.versionName}"
@@ -58,6 +58,8 @@ dependencies {
     implementation rootProject.ext.androidDependencies.design
 
     implementation rootProject.ext.dependencies.gsonConverter
+    implementation rootProject.ext.dependencies.dagger
+    annotationProcessor rootProject.ext.dependencies.daggerCompiler
 
     testImplementation rootProject.ext.testDependencies.junit
 }
