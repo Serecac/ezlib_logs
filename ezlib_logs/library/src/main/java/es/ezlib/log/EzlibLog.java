@@ -77,54 +77,27 @@ public class EzlibLog {
         this.throwable = throwable;
     }
 
-    public boolean isHeader(){
+    public boolean isHeader() {
         return header != null && !header.isEmpty();
     }
 
-    public static class Builder {
+    public boolean isMessage() {
+        return message != null && !message.isEmpty();
+    }
 
-        EzlibLog log;
+    public boolean isThrowable() {
+        return throwable != null;
+    }
 
-        public Builder() {
-            log = new EzlibLog();
-        }
+    public boolean isJson() {
+        return json != null  && !json.isEmpty();
+    }
 
-        public Builder addMessage(String message) {
-            log.setMessage(message);
-            return this;
-        }
+    public boolean isXml() {
+        return xml != null  && !xml.isEmpty();
+    }
 
-        public Builder addHeader(String header) {
-            log.setHeader(header);
-            return this;
-        }
-
-        public Builder addThrowable(Throwable throwable) {
-            log.setThrowable(throwable);
-            return this;
-        }
-
-        public Builder addStackTraceDeep(int stackTraceDeep) {
-            log.setStackTraceDeep(stackTraceDeep);
-            return this;
-        }
-
-        public Builder addJsonObject(Object jsonObject) {
-            Gson gson = new Gson();
-            log.setJson(gson.toJson(jsonObject));
-            return this;
-        }
-
-        public Builder addJsonString(String jsonString) {
-            log.setJson(jsonString);
-            return this;
-        }
-
-        public Builder addXmlString(String xmlString) {
-            log.setXml(xmlString);
-            return this;
-        }
-
-        public EzlibLog create() { return log; }
+    public int getRealStackTraceDeep(){
+        return isThrowable() ? (stackTraceDeep != -1 ? stackTraceDeep : throwable.getStackTrace().length) : 0;
     }
 }

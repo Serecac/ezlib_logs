@@ -1,5 +1,11 @@
 package es.ezlib.log;
 
+import android.os.Build;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Arrays;
 
 class EzlibLogUtils {
@@ -8,25 +14,16 @@ class EzlibLogUtils {
     static final String DEFAULT_TAG = "EzlibLogManager";
     static final String lineNormal = "║ %s";
 
-    static final int LOG_DEBUG = 1;
-    static final int LOG_VERBOSE = 2;
-    static final int LOG_INFO = 3;
-    static final int LOG_ERROR = 4;
-    static final int LOG_WARNING = 5;
-
     static String getLineFirstSeparator(){
-        String returnLine = "╔";
-        return returnLine + stringFromCloningChar(SEPARATOR_LINE_LENTGH,'═');
+        return "╔" + stringFromCloningChar(SEPARATOR_LINE_LENTGH,'═');
     }
 
     static String getLineLastSeparator(){
-        String returnLine = "╚";
-        return returnLine + stringFromCloningChar(SEPARATOR_LINE_LENTGH,'═');
+        return "╚" + stringFromCloningChar(SEPARATOR_LINE_LENTGH,'═');
     }
 
     static String getLineMidSeparator(){
-        String returnLine = "╟";
-        return returnLine + stringFromCloningChar(SEPARATOR_LINE_LENTGH,'─');
+        return "╟" + stringFromCloningChar(SEPARATOR_LINE_LENTGH,'─');
     }
 
     static String getLineNormal(String message){
@@ -37,5 +34,17 @@ class EzlibLogUtils {
         final char[] array = new char[size];
         Arrays.fill(array, ch);
         return new String(array);
+    }
+
+    static Object getJsonObjFromStr(Object json) {
+        try {
+            return new JSONObject(json.toString());
+        } catch (JSONException ex) {
+            try {
+                return new JSONArray(json);
+            } catch (JSONException ex1) {
+                return null;
+            }
+        }
     }
 }
