@@ -6,6 +6,7 @@ class EzlibLogUtils {
 
     static final int SEPARATOR_LINE_LENTGH = 90;
     static final String DEFAULT_TAG = "EzlibLogManager";
+    static final String lineNormal = "║ %s";
 
     static final int LOG_DEBUG = 1;
     static final int LOG_VERBOSE = 2;
@@ -26,6 +27,10 @@ class EzlibLogUtils {
     static String getLineMidSeparator(){
         String returnLine = "╟";
         return returnLine + stringFromCloningChar(SEPARATOR_LINE_LENTGH,'─');
+    }
+
+    static String getLineNormal(String message){
+        return String.format(lineNormal, message);
     }
 
     static String stringFromCloningChar(int size, char ch){

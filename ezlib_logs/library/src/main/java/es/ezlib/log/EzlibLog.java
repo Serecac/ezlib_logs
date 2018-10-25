@@ -77,6 +77,10 @@ public class EzlibLog {
         this.throwable = throwable;
     }
 
+    public boolean isHeader(){
+        return header != null && !header.isEmpty();
+    }
+
     public static class Builder {
 
         EzlibLog log;
