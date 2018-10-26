@@ -1,7 +1,5 @@
 package es.ezlib.log;
 
-import com.google.gson.Gson;
-
 public class EzlibLog {
 
     private String header;
@@ -77,27 +75,27 @@ public class EzlibLog {
         this.throwable = throwable;
     }
 
-    public boolean isHeader() {
+    public boolean hasHeader() {
         return header != null && !header.isEmpty();
     }
 
-    public boolean isMessage() {
+    public boolean hasMessage() {
         return message != null && !message.isEmpty();
     }
 
-    public boolean isThrowable() {
+    public boolean hasThrowable() {
         return throwable != null;
     }
 
-    public boolean isJson() {
+    public boolean hasJson() {
         return json != null  && !json.isEmpty();
     }
 
-    public boolean isXml() {
+    public boolean hasXml() {
         return xml != null  && !xml.isEmpty();
     }
 
     public int getRealStackTraceDeep(){
-        return isThrowable() ? (stackTraceDeep != -1 ? stackTraceDeep : throwable.getStackTrace().length) : 0;
+        return hasThrowable() ? (stackTraceDeep != -1 ? stackTraceDeep : throwable.getStackTrace().length) : 0;
     }
 }

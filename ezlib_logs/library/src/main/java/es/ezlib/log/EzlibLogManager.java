@@ -5,22 +5,12 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
-import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.io.Writer;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
@@ -89,13 +79,13 @@ public class EzlibLogManager {
     }
 
     private String writeHeader(EzlibLog log) {
-        return log.isHeader() ? getLineNormal(log.getHeader()) + "\n" : "";
+        return log.hasHeader() ? getLineNormal(log.getHeader()) + "\n" : "";
     }
 
     private String writeMessage(EzlibLog log, boolean hasLines) {
 
         String message = "";
-        if (log.isMessage()) {
+        if (log.hasMessage()) {
             message += hasLines ? getLineMidSeparator() + "\n" : "";
             message += getLineNormal(log.getMessage()) + "\n";
         }
@@ -104,7 +94,7 @@ public class EzlibLogManager {
 
     private String writeThrowable(EzlibLog log, boolean hasLines) {
         String throwable = "";
-        if (log.isThrowable()) {
+        if (log.hasThrowable()) {
             throwable += hasLines ? getLineMidSeparator() + "\n" : "";
             throwable += getLineNormal("Cause: " + log.getThrowable().toString()) + "\n";
             throwable += getLineNormal("Throwable: " + log.getThrowable().getStackTrace()[0].toString()) + "\n";
@@ -116,7 +106,7 @@ public class EzlibLogManager {
 
     private String writeJson(EzlibLog log, boolean hasLines) {
         String json = "";
-        if (log.isJson()) {
+        if (log.hasJson()) {
             Object jsonObject = getJsonObjFromStr(log.getJson());
             if (jsonObject != null) {
                 json += hasLines ? getLineMidSeparator() + "\n" : "";
@@ -137,7 +127,7 @@ public class EzlibLogManager {
 
     private String writeXml(EzlibLog log, boolean hasLines) {
         String xml = "";
-        if (log.isXml()) {
+        if (log.hasXml()) {
             xml += hasLines ? getLineMidSeparator() + "\n" : "";
             StreamSource xmlInput = new StreamSource(new StringReader(log.getXml()));
             StringWriter stringWriter = new StringWriter();
