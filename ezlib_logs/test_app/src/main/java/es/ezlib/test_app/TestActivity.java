@@ -5,9 +5,12 @@ import android.os.Bundle;
 
 import es.ezlib.log.EzlibLog;
 import es.ezlib.log.EzlibLogBuilder;
+import es.ezlib.log.EzlibLogInstance;
 import es.ezlib.log.EzlibLogManager;
 
 import static es.ezlib.log.EzlibLogManager.LOG_VERBOSE;
+import static es.ezlib.log.EzlibLogManager.LOG_WARNING;
+import static es.ezlib.log.EzlibLogManager.NO_LOG;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -37,10 +40,13 @@ public class TestActivity extends AppCompatActivity {
             ezlibLogManager.error(new EzlibLogBuilder().addHeader("Prueba de cabecera").addMessage("Prueba de mensaje").addThrowable(e).addStackTraceDeep(3));
             ezlibLogManager.error(new EzlibLogBuilder().addThrowable(e).addStackTraceDeep(3));
             ezlibLogManager.error(new EzlibLogBuilder().addHeader("Prueba de cabecera").addMessage("Prueba de mensaje").addThrowable(e));
-
-
             ezlibLogManager.error(new EzlibLogBuilder().addHeader("Prueba de cabecera").addMessage("Prueba de mensaje").addThrowable(e).addStackTraceDeep(3).addJsonObject(new TestExample()).addXmlString(xmlString));
-
         }
+
+        EzlibLogInstance.error(new EzlibLogBuilder().addHeader("Prueba de cabecera 1"));
+        EzlibLogInstance.init("Ezlib_test2", NO_LOG);
+        EzlibLogInstance.error(new EzlibLogBuilder().addHeader("Prueba de cabecera 2"));
+        EzlibLogInstance.init("Ezlib_test2", LOG_WARNING);
+        EzlibLogInstance.error(new EzlibLogBuilder().addHeader("Prueba de cabecera 3"));
     }
 }
