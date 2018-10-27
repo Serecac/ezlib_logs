@@ -1,6 +1,6 @@
 package es.ezlib.log;
 
-public class EzlibLog {
+class EzlibLog {
 
     private String header;
     private String message;

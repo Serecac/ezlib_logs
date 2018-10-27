@@ -3,7 +3,6 @@ package es.ezlib.test_app;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import es.ezlib.log.EzlibLog;
 import es.ezlib.log.EzlibLogBuilder;
 import es.ezlib.log.EzlibLogInstance;
 import es.ezlib.log.EzlibLogManager;
