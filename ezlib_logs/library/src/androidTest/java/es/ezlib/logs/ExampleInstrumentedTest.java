@@ -1,4 +1,4 @@
-package es.ezlib.log;
+package es.ezlib.logs;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -3,7 +3,7 @@ allprojects {
         versionMajor = 1
         versionMinor = 0
         versionPatch = 0
-        nameApk = "Ezlib_Log"
+        nameApk = "Ezlib_Logs"
         versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
     }
 }

@@ -1,4 +1,4 @@
-package es.ezlib.test_app;
+package es.ezlib.logs_test;
 
 import org.junit.Test;
 

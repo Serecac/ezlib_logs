@@ -1,4 +1,4 @@
-package es.ezlib.log;
+package es.ezlib.logs;
 
 import android.util.Log;
 
@@ -15,12 +15,12 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import static es.ezlib.log.EzlibLogUtils.DEFAULT_TAG;
-import static es.ezlib.log.EzlibLogUtils.getJsonObjFromStr;
-import static es.ezlib.log.EzlibLogUtils.getLineFirstSeparator;
-import static es.ezlib.log.EzlibLogUtils.getLineLastSeparator;
-import static es.ezlib.log.EzlibLogUtils.getLineMidSeparator;
-import static es.ezlib.log.EzlibLogUtils.getLineNormal;
+import static es.ezlib.logs.EzlibLogUtils.DEFAULT_TAG;
+import static es.ezlib.logs.EzlibLogUtils.getJsonObjFromStr;
+import static es.ezlib.logs.EzlibLogUtils.getLineFirstSeparator;
+import static es.ezlib.logs.EzlibLogUtils.getLineLastSeparator;
+import static es.ezlib.logs.EzlibLogUtils.getLineMidSeparator;
+import static es.ezlib.logs.EzlibLogUtils.getLineNormal;
 
 public class EzlibLogManager {
 

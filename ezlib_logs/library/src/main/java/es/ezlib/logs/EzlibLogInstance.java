@@ -1,7 +1,7 @@
-package es.ezlib.log;
+package es.ezlib.logs;
 
-import static es.ezlib.log.EzlibLogManager.LOG_VERBOSE;
-import static es.ezlib.log.EzlibLogUtils.DEFAULT_TAG;
+import static es.ezlib.logs.EzlibLogManager.LOG_VERBOSE;
+import static es.ezlib.logs.EzlibLogUtils.DEFAULT_TAG;
 
 public class EzlibLogInstance {
 

@@ -1,15 +1,15 @@
-package es.ezlib.test_app;
+package es.ezlib.logs_test;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import es.ezlib.log.EzlibLogBuilder;
-import es.ezlib.log.EzlibLogInstance;
-import es.ezlib.log.EzlibLogManager;
+import es.ezlib.logs.EzlibLogBuilder;
+import es.ezlib.logs.EzlibLogInstance;
+import es.ezlib.logs.EzlibLogManager;
 
-import static es.ezlib.log.EzlibLogManager.LOG_VERBOSE;
-import static es.ezlib.log.EzlibLogManager.LOG_WARNING;
-import static es.ezlib.log.EzlibLogManager.NO_LOG;
+import static es.ezlib.logs.EzlibLogManager.LOG_VERBOSE;
+import static es.ezlib.logs.EzlibLogManager.LOG_WARNING;
+import static es.ezlib.logs.EzlibLogManager.NO_LOG;
 
 public class TestActivity extends AppCompatActivity {
 

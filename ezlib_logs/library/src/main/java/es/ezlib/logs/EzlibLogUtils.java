@@ -1,4 +1,4 @@
-package es.ezlib.log;
+package es.ezlib.logs;
 
 import org.json.JSONArray;
 import org.json.JSONException;
