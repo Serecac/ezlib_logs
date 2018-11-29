@@ -7,7 +7,7 @@ This library allows to write logs cleaner and with better visibility in the logc
 
 How to use
 -------
-Put the .aar file (Ezlib_Log_x.y.z.aar) in the folder "Libs" inside the module.
+Put the .aar file (Ezlib_Logs_x.y.z.aar) in the folder "Libs" inside the module.
 
 In your project build.gradle. Add the following lines
 ```
@@ -17,7 +17,7 @@ flatDir {
 ```
 ```
 dependencies {
-	implementation(name: 'Ezlib_Log_x.y.z', ext: 'aar')
+	implementation(name: 'Ezlib_Logs_x.y.z', ext: 'aar')
 }
 ```
 
