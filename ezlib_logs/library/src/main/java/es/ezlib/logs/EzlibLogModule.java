@@ -10,7 +10,7 @@ public class EzlibLogModule {
 
     @Provides
     @Singleton
-    EzlibLogManager provideEzlibManager(@EzlibLogTag String tag, @EzlibLogLogLevel int logLevel) {
+    EzlibLogManager provideEzlibLogManager(@EzlibLogTag String tag, @EzlibLogLogLevel int logLevel) {
         return new EzlibLogManager(tag, logLevel);
     }
 }
